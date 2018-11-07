@@ -36,6 +36,20 @@ public class LetterService {
         return result;
     }
 
+    public String getClosestLetter2(double[] arr) {
+        double max = arr[0];
+        int maxIndex = 0;
+
+        for(int i = 1; i < arr.length; i++) {
+            if(arr[i] > max) {
+                maxIndex = i;
+                max = arr[i];
+            }
+        }
+
+        return letters.get(maxIndex).getSymbol();
+    }
+
     private Letter initL() {
         Letter letterL = new Letter();
         letterL.setSymbol("L");
