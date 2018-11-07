@@ -39,6 +39,7 @@ public class App {
     private static void train(BasicNetwork network, MLDataSet trainingSet) {
         network.reset();
         ResilientPropagation train = new ResilientPropagation(network, trainingSet);
+        train.setThreadCount(4);
 
         int epoch = 1;
 
@@ -66,7 +67,7 @@ public class App {
             System.out.println(MessageFormat.format("{0} -> {1} -> {2}",
                     ideal, closestLetter2, closestLetter));
 
-            result &= ideal.equals(closestLetter) || ideal.equals(closestLetter2);
+            result &= ideal.equals(closestLetter);
         }
 
         return !result;
